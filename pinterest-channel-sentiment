@@ -1,7 +1,7 @@
 <script>
     /*
-        - Output a count of how many pins and likes you'll see on a Pinterest channel.
-        - Output will show how many pins and likes are on the channel as well as the median and mean amount for each.
+        - Output a count of how many pins and likes you see in a Pinterest channel.
+        - Output will also include median and mean amount pins and likes per channel.
         - To use:
           - Due to this using YUI lib, and Pinterest's content security policy, you'll need to copy all markup on the channel's page seen in Chrome inspector, paste it into your favorite text editor and save as .html.
           - Then copy and past this script right before the closing </body> tag.
