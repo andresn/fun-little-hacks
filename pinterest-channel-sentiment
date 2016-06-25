@@ -59,14 +59,10 @@
             console.log("median:");
             console.log(median);
             console.log('');
-
-
         };
 
         setTimeout(function(){
-
             YUI().use('node', function(Y){
-
                 var pins = Y.all('.socialMetaCount.repinCountSmall'),
                     likes = Y.all('.socialMetaCount.likeCountSmall');
 
@@ -78,7 +74,6 @@
                 console.log(getAggregates(likes));
                 console.log('');
             });
-
         }, 500);
 
 
