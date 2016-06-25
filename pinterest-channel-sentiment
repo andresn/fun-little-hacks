@@ -27,8 +27,6 @@
             nodes.each(function(node){
                 var textCountTmp = node.get('text');
                 var count = parseFloat(textCountTmp, 10);
-
-
                 if (textCountTmp.indexOf('k') !== -1) {
                     count *= 1000;
                 }
