@@ -7,7 +7,7 @@
           - Then copy and past this script right before the closing </body> tag.
           - Fire up page locally in Chrome, open up Chrome inspector, and voila.
           - Feel free to take and make this easier, probably by using native js.
-        - What can you use this for? Well, perhaps you need to guage how one specific card did relative to all others in a channel.
+        - What can you use this for? Well, perhaps you need to guage user sentiment towards one specific card relative to all others in a channel.
     */
 
     var YUISeed = document.createElement('script'),
