@@ -10,68 +10,67 @@
         - What can you use this for? Well, perhaps you need to guage how one specific card did relative to all others in a channel.
     */
 
-    if(typeof YUI === "undefined") {
-        var YUISeed = document.createElement('script'),
-            body = document.getElementsByTagName('body')[0];
+    var YUISeed = document.createElement('script'),
+        body = document.getElementsByTagName('body')[0];
 
-        YUISeed.setAttribute('src', 'http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js');
+    YUISeed.setAttribute('src', 'http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js');
 
-        body.appendChild(YUISeed);
+    body.appendChild(YUISeed);
 
-        var getAggregates = function(nodes) {
-            var dataSet = [],
-                total = 0,
-                median,
-                mean;
+    var getAggregates = function(nodes) {
+        var dataSet = [],
+            total = 0,
+            median,
+            mean;
 
-            nodes.each(function(node){
-                var textCountTmp = node.get('text');
-                var count = parseFloat(textCountTmp, 10);
-                if (textCountTmp.indexOf('k') !== -1) {
-                    count *= 1000;
-                }
-                total += count;
-                dataSet.push(count);
-            });
-            dataSet.sort(function(a, b) {
-                return a - b;
-            });
-
-            var medianPos = dataSet.length / 2;
-            var mean = total / dataSet.length;
-            var median;
-
-            if ( (medianPos) % 1 !== 0) { // median is a decimal
-                medianPos = Math.ceil(medianPos);
-                median = dataSet[medianPos - 1];
-            } else {
-                median = (dataSet[medianPos - 1] + dataSet[medianPos]) / 2;
+        nodes.each(function(node){
+            var textCountTmp = node.get('text');
+            var count = parseFloat(textCountTmp, 10);
+            if (textCountTmp.indexOf('k') !== -1) {
+                count *= 1000;
             }
+            total += count;
+            dataSet.push(count);
+        });
+        dataSet.sort(function(a, b) {
+            return a - b;
+        });
 
-            console.log("dataSet.length:");
-            console.log(dataSet.length);
+        var medianPos = dataSet.length / 2;
+        var mean = total / dataSet.length;
+        var median;
+
+        if ( (medianPos) % 1 !== 0) { // median is a decimal
+            medianPos = Math.ceil(medianPos);
+            median = dataSet[medianPos - 1];
+        } else {
+            median = (dataSet[medianPos - 1] + dataSet[medianPos]) / 2;
+        }
+
+        console.log("dataSet.length:");
+        console.log(dataSet.length);
+        console.log('');
+        console.log("mean:");
+        console.log(mean);
+        console.log('');
+        console.log("median:");
+        console.log(median);
+        console.log('');
+    };
+
+    setTimeout(function(){
+        YUI().use('node', function(Y){
+            var pins = Y.all('.socialMetaCount.repinCountSmall'),
+                likes = Y.all('.socialMetaCount.likeCountSmall');
+
+            console.log("getAggregates(pins):");
+            console.log(getAggregates(pins));
             console.log('');
-            console.log("mean:");
-            console.log(mean);
+
+            console.log("getAggregates(likes):");
+            console.log(getAggregates(likes));
             console.log('');
-            console.log("median:");
-            console.log(median);
-            console.log('');
-        };
+        });
+    }, 500);
 
-        setTimeout(function(){
-            YUI().use('node', function(Y){
-                var pins = Y.all('.socialMetaCount.repinCountSmall'),
-                    likes = Y.all('.socialMetaCount.likeCountSmall');
-
-                console.log("getAggregates(pins):");
-                console.log(getAggregates(pins));
-                console.log('');
-
-                console.log("getAggregates(likes):");
-                console.log(getAggregates(likes));
-                console.log('');
-            });
-        }, 500);
-    }
 </script>
