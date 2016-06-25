@@ -1,14 +1,15 @@
-/*
-- Output a count of how many pins and likes you'll see on a Pinterest channel.
-- Output will show how many pins and likes are on the channel as well as the median and mean amount for each.
-- To use:
-  - Due to this using YUI lib, and Pinterest's content security policy, you'll need to copy all markup on the channel's page seen in Chrome inspector, paste it into your favorite text editor and save as .html.
-  - Then copy and past this script right before the closing </body> tag.
-  - Fire up page locally in Chrome, open up Chrome inspector, and voila.
-  - Feel free to take and make this easier, probably by using native js.
-- What can you use this for? Well, perhaps you need to guage how one specific card did relative to all others in a channel.
-*/
 <script>
+    /*
+        - Output a count of how many pins and likes you'll see on a Pinterest channel.
+        - Output will show how many pins and likes are on the channel as well as the median and mean amount for each.
+        - To use:
+          - Due to this using YUI lib, and Pinterest's content security policy, you'll need to copy all markup on the channel's page seen in Chrome inspector, paste it into your favorite text editor and save as .html.
+          - Then copy and past this script right before the closing </body> tag.
+          - Fire up page locally in Chrome, open up Chrome inspector, and voila.
+          - Feel free to take and make this easier, probably by using native js.
+        - What can you use this for? Well, perhaps you need to guage how one specific card did relative to all others in a channel.
+    */
+
     if(typeof YUI === "undefined") {
         var YUISeed = document.createElement('script'),
             body = document.getElementsByTagName('body')[0];
